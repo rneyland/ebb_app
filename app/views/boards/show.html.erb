@@ -1,5 +1,5 @@
 <% provide(:title, @board.id) %>
-
+	
 	<div class="box_left" style="margin:0 0 20px 20px;">
 	<ul >
 	<li><b>Created by: </b><%= @board.user.name %></li>
@@ -10,10 +10,7 @@
 	<li><%= button_to "Create advertisement", new_board_advertisement_path(@board), class: "btn btn-large btn-primary" %></li>
 	</ul>
 	</div>
-
-
-
-
+	
 	<div class="ad_container" style="width: <%= @board.width * 64 %>px; height: <%= @board.height * 64 %>px;">
 		<%= render @board.advertisements %>
 	</div>

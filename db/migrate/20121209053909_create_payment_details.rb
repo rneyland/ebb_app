@@ -3,7 +3,8 @@ class CreatePaymentDetails < ActiveRecord::Migration
     create_table :payment_details do |t|
       t.integer :user_id
       t.decimal :amount
-      t.string :payment_type
+      t.integer :payable_id
+      t.string :payable_type
 
       t.timestamps
     end

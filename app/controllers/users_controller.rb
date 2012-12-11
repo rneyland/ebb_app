@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	before_filter :signed_in_user,  only: [:show, :index, :edit, :update, :destroy]
-	before_filter :correct_user,    only: [:show, :edit, :update]
+	before_filter :require_login,  only: [:index, :edit]
+	before_filter :correct_user,    only: [:show, :edit, :update, :create]
 	before_filter :admin_user, 	    only: :destroy 
 
   	def show
@@ -46,10 +46,17 @@ class UsersController < ApplicationController
 		redirect_to users_url
 	end
 
+  def require_login
+    unless signed_in?
+      flash[:error] = "Not signed in" 
+      redirect_to signin_path # Prevents the current action from running
+    end
+  end
 	# PRIVATE FUNCTIONS 
 	private
 
 	def correct_user
+		flash[:error] = "Wrong user" 
 		@user = User.find(params[:id])
 		redirect_to(root_path) unless current_user?(@user)
 	end

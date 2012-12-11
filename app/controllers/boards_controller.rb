@@ -4,8 +4,6 @@ class BoardsController < ApplicationController
   	end
 
   	def create
-    
-  		  
           @board = current_user.boards.build(params[:board])
           
           if Board.save_all(@board) 

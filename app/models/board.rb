@@ -2,10 +2,11 @@ class Board < ActiveRecord::Base
 	attr_accessible :name, :height, :width, :timezone, :age
 	
 	belongs_to :user
-	belongs_to :payment_detail
+	
 	
 	has_many :advertisements
-	has_many :tiles
+	has_many :tiles, through: :advertisements
+	has_many :payment_details, as: :payable
 
 
 	validates :name, presence: true
@@ -22,15 +23,21 @@ class Board < ActiveRecord::Base
 		begin
 			transaction do 
 				board.save!
-				payment_detail = board.user.payment_details.build
+				
+				payment_detail = board.payment_details.build
+				payment_detail.user_id = board.user.id
 				payment_detail.amount = board.width * board.height
-				payment_detail.board_id = board.id
 				payment_detail.save!
 				advertisement = board.advertisements.build(width: 1, height: 1, x_location: 0, y_location: 0, image: "fake", image_contents: "fake")
 				advertisement.user_id = board.user_id
 				advertisement.save!
+				payment_detail2 = advertisement.payment_details.build
+				payment_detail2.user_id = advertisement.user.id
+				payment_detail2.amount = advertisement.width * advertisement.height
+				payment_detail2.save!
 			end
 		rescue 
+			# puts board.errors.add(:name, board.errors.full_messages.each do |msg| msg end)
 		end
 	end 
 

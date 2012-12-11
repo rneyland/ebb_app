@@ -5,7 +5,7 @@ class AdvertisementsController < ApplicationController
 
 
   def show
-    @advertisement = @board.advertisements.find(params[:id])
+    @advertisement = Advertisement.find(params[:id])
   	
   end
 
@@ -22,14 +22,20 @@ class AdvertisementsController < ApplicationController
             
             @advertisement.image = @advertisement.image_contents.original_filename
             @advertisement.image_contents = @advertisement.image_contents.read
-
+            @advertisement.user_id = current_user.id
            rescue
             @advertisement.image_contents = nil
             @advertisement.image = nil
            end 
+           # if  @advertisement.save! 
+           #    @payment_detail = @advertisement.payment_details.build
+           #    @payment_detail.user_id = current_user.id
+           #    @payment_detail.save!
+           # end
                 if Advertisement.save_all(@advertisement, current_user)
                   flash[:success] = "Advertisement created"
-                  redirect_to board_advertisement_path(@advertisement.board_id, @advertisement.id)
+                 
+                  redirect_to board_advertisement_path(@board, @advertisement)
                 else
                   render 'new'
                 end
@@ -50,6 +56,8 @@ class AdvertisementsController < ApplicationController
       send_data @advertisement.image_contents, filename: @advertisement.image, disposition: "inline"
 
   end
+
+
 
 
 

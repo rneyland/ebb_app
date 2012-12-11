@@ -21,6 +21,8 @@ SampleApp::Application.routes.draw do
   #match '/advertisements/:board_id/advertisements/:id', to: 'advertisements#show'
   match '/boards/:board_id/advertisements/:id/img', to: 'advertisements#img'
 
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

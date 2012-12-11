@@ -31,13 +31,13 @@ ActiveRecord::Schema.define(:version => 20121211081003) do
 
   create_table "boards", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
     t.string   "name"
     t.integer  "height"
     t.integer  "width"
-    t.integer  "age",        :default => 0
     t.string   "timezone"
+    t.integer  "age",        :default => 0
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   add_index "boards", ["user_id"], :name => "index_boards_on_user_id"
@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(:version => 20121211081003) do
   create_table "payment_details", :force => true do |t|
     t.integer  "user_id"
     t.decimal  "amount"
-    t.string   "payment_type"
+    t.integer  "payable_id"
+    t.string   "payable_type"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-    t.integer  "board_id"
   end
 
   add_index "payment_details", ["user_id"], :name => "index_payment_details_on_user_id"
