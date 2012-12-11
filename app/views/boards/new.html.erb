@@ -1,0 +1,29 @@
+<% provide(:title, 'New Board') %>
+
+<div class="form">
+  <h1>Create a new board</h1>
+	<div>
+		<%= form_for(@board) do |f| %>
+		<%= render 'shared/error_messages', object: f.object%>
+
+      	<%= f.label :width %>
+      	<%= f.text_field :width %>
+
+      	<%= f.label :height %>
+      	<%= f.text_field :height %>
+
+      	<%= f.label :timezone %>
+      	<%= f.time_zone_select :timezone %>
+
+     	<%= f.label :name %>
+      	<%= f.text_field :name %>
+
+      	<% #@user = current_user %>
+      
+
+      <%= f.submit "Create board", class: "btn btn-large btn-primary" %>
+    <% end %>
+	</div>
+</div>
+			
+

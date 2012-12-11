@@ -1,0 +1,12 @@
+<% provide(:title, @advertisement.id) %>
+<div>
+	<li><b>Created by: </b><%= @advertisement.user.name %></li>
+	<li><b>Width: </b><%= @advertisement.width %> tiles</li>
+	<li><b>Height: </b><%= @advertisement.height %> tiles</li>
+	<li><b>X Location: </b><%= @advertisement.x_location %></li>
+	<li><b>Y Location: </b><%= @advertisement.y_location %></li>
+	
+	<%= button_to("Back to board", board_path(@board), method: :get, class: "btn btn-large btn-primary" ) %>
+	<%= image_tag("#{request.fullpath}/img", id: "ad_#{@advertisement.id}_image", width: "#{@advertisement.width * 64}", height: "#{@advertisement.height * 64}") %>
+
+</div>

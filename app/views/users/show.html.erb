@@ -1,0 +1,23 @@
+<% provide(:title, @user.name) %>
+	<div class="box_left">
+		
+			<h1><%= @user.name %></h1>
+			<a target="blank" href="mailto:<%= @user.email %>"><%= @user.email %></a>
+			<h2>Boards: <%= @user.boards.count %><h2>
+<%= button_to "Create board", new_board_path, class: "btn btn-large btn-primary" %>
+
+	
+	</div>
+
+
+
+	<div class="row">
+			<h1>My boards</h1>
+			
+		
+		<div id="box_boards">
+		<%= render @user.boards %>
+		</div>
+
+
+	</div>

@@ -1,0 +1,4 @@
+<%= image_tag("#{request.fullpath}/advertisements/#{advertisement.id}/img", id: "ad_#{advertisement.id}_image", 
+	width: (advertisement.width * 64), height: advertisement.height * 64, style: "top:#{advertisement.y_location * 64}px;left:#{advertisement.x_location * 64}px;") %>
+
+	
