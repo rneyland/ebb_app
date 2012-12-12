@@ -1,343 +1,317 @@
-
-
-
 @import "bootstrap";
-
-/* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
 $grayMedium: #c8c8c8;
 
 @mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-/* universal */
-
 html {
-  height: 100%;
-  overflow-y: scroll;
+	height: 100%;
+	overflow-y: scroll;
 }
 
 body {
-  height: 100%;
-  //padding-top: 60px;
+	height: 100%;
 
-  background-color: $grayMediumLight;
+	background-color: $grayMediumLight;
 }
 
 section {
-  overflow: auto;
+	overflow: auto;
 }
 
 textarea {
-  resize: vertical;
+	resize: vertical;
 }
 
 .center {
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-  }
+	text-align: center;
+	h1 {
+		margin-bottom: 10px;
+	}
 }
 
-/* typography */
-
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+	line-height: 1;
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 40px;
-  text-align: center;
+	font-size: 3em;
+	letter-spacing: -2px;
+	margin-bottom: 40px;
+	text-align: center;
 }
 
 h2 {
-  font-size: 1.7em;
-  letter-spacing: -1px;
-  margin-bottom: 15px;
-  text-align: left;
-  font-weight: normal;
-  color: $grayLight;
+	font-size: 1.7em;
+	letter-spacing: -1px;
+	margin-bottom: 15px;
+	text-align: left;
+	font-weight: normal;
+	color: $grayLight;
 }
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-
-/* header */
 
 #logo {
-  float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
-  font-weight: bold;
-  line-height: 1;
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+	float: left;
+	margin-right: 10px;
+	font-size: 1.7em;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	padding-top: 9px;
+	font-weight: bold;
+	line-height: 1;
+	&:hover {
+		color: white;
+		text-decoration: none;
+	}
 }
 
 
-/* footer */
-
-
-
-/* sidebar */
-
-
-/* forms */
-
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
-  width: 100%;
-  padding: 10px;
-  height: auto !important;
-  margin-bottom: 15px;
-  @include box-sizing;
+	border: 1px solid #bbb;
+	width: 100%;
+	padding: 10px;
+	height: auto !important;
+	margin-bottom: 15px;
+	@include box-sizing;
 }
 
 #error_explanation {
-  color: #f00;
-  ul {
+	color: #f00;
+	ul {
 	list-style: none;
 	margin: 10px 0px 20px 0px;
-  }	
+	}	
 }
 
 .alert-error {
-  max-width: 450px;
-  padding: 8px 0px;
-  text-indent: 10px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	padding: 8px 0px;
+	text-align: center;
 }
 .field_with_errors {
 
-  @extend .control-group;
-  @extend .error;
+	@extend .control-group;
+	@extend .error;
 }
 /* users index */
 
 .users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:last-child {
-      border-bottom: 1px solid $grayLighter;
-    }
-  }
+	list-style: none;
+	margin: 0;
+	li {
+		overflow: auto;
+		padding: 10px 0;
+		border-top: 1px solid $grayLighter;
+		&:last-child {
+			border-bottom: 1px solid $grayLighter;
+		}
+	}
 }
 
 
 /* miscellaneous */
 
 .debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
+	clear: both;
+	float: left;
+	width: 100%;
+	margin-top: 45px;
+	@include box_sizing;
 }
 
 
 .as_left {
-  float: left;
-  margin-left: 20px;
-    h1 {
+	float: left;
+	margin-left: 20px;
+		h1 {
 
-    font-size: 1.6em;
-    text-align: left;
-    letter-spacing: -1px;
-    margin: 0;
-    margin-bottom: 2px;
+		font-size: 1.6em;
+		text-align: left;
+		letter-spacing: -1px;
+		margin: 0;
+		margin-bottom: 2px;
 
-  }
+	}
 }
 
 
 
 .container {
-  min-height: 100%;
-  position: relative;
-  //background-color: white;
-  
-  //background-color:red;
+	min-height: 100%;
+	position: relative;
+	//background-color: white;
+	
+	//background-color:red;
 }
 .container2 {
-  min-height: 100%;
-  position: relative;
-  width: 100%;
+	min-height: 100%;
+	position: relative;
+	width: 100%;
 
 }
 
 .body {
  // background-color: blue;
-  margin-top: 60px;
-  padding-bottom: 20px;
+	margin-top: 60px;
+	padding-bottom: 20px;
 }
 
 footer {
-  position: absolute;
-  bottom: 10px;
-  height: 10px;
-  width: 100%;
-  color: $grayLight;
-  border-top: 1px solid $grayMedium;
-  a {
-    color: $gray;
-    &:hover { 
-      color: $grayDarker;
-    }
-  }  
-  small { 
-    float: left; 
-    margin-left: 5px;
+	position: absolute;
+	bottom: 10px;
+	height: 10px;
+	width: 100%;
+	color: $grayLight;
+	border-top: 1px solid $grayMedium;
+	a {
+		color: $gray;
+		&:hover { 
+			color: $grayDarker;
+		}
+	}  
+	small { 
+		float: left; 
+		margin-left: 5px;
 
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 10px;
-    }
-  }
+	}
+	ul {
+		float: right;
+		list-style: none;
+		li {
+			float: left;
+			margin-left: 10px;
+		}
+	}
 }
 .divider {
-  width: inherit;
-  height: 50px;
-  background-color: $grayMediumLight;
+	width: inherit;
+	height: 50px;
+	background-color: $grayMediumLight;
 }
 
 .btn {
-  margin: 0;
+	margin: 0;
 }
 
 .row {
-  position: relative;
-  margin: 0;
-  margin-top: 50px;
-  padding: 20px 5px 40px 5px;
-  h1 {
-    padding-bottom: 10px;
-    border-bottom: 1px solid $grayMedium;
-  }
+	position: relative;
+	margin: 0;
+	margin-top: 50px;
+	padding: 20px 5px 40px 5px;
+	h1 {
+		padding-bottom: 10px;
+		border-bottom: 1px solid $grayMedium;
+	}
  
 
-  .btn {
+	.btn {
 
-    display: block;
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 200px;
-  }
+		display: block;
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 200px;
+	}
 
 }
 
 .form {
-   padding: 20px 5px 40px 5px;
-   h1 {
-    padding-bottom: 10px;
-  border-bottom: 1px solid $grayMedium;
+	 padding: 20px 5px 40px 5px;
+	 h1 {
+		padding-bottom: 10px;
+	border-bottom: 1px solid $grayMedium;
 }
-  div {
-      width: 450px;
-      margin: 0 auto;
-      input {
-       
+	div {
+			width: 450px;
+			margin: 0 auto;
+			input {
+			 
 
-      }
-  }
-  .btn {
+			}
+	}
+	.btn {
 
-    display: block;
-    margin: 0 auto;
-    margin-top: 20px;
-    width: 200px;
-  }
+		display: block;
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 200px;
+	}
 }
 
 
 ul {
-  list-style: none;
+	list-style: none;
 }
 
 
-  .ad_container {
-  position: relative;
-  display: block;
-  border-bottom: 1px solid $grayMedium;
-  background-color: #fff;
-  margin: 0 auto;
-   
-  img {
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    display: block;
-  }
+	.ad_container {
+	position: relative;
+	display: block;
+	border-bottom: 1px solid $grayMedium;
+	background-color: #fff;
+	margin: 0 auto;
+	 
+	img {
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		display: block;
+	}
 
 }
 
 .box_left {
-  overflow: inherit;
-  text-align: center;
-  h1 {
-    font-size: 30px;
-    margin: 0;
-  }
-  h2 {
-    margin: 0;
-    font-size: 20px;
-    text-align: center;
-    margin-top: 10px;
-  }
-  .btn {
-    margin-top: 25px;
-  }
-  ul {
+	overflow: inherit;
+	text-align: center;
+	h1 {
+		font-size: 30px;
+		margin: 0;
+	}
+	h2 {
+		margin: 0;
+		font-size: 20px;
+		text-align: center;
+		margin-top: 10px;
+	}
+	.btn {
+		margin-top: 25px;
+	}
+	ul {
 
-    margin: 0;
-    padding: 0;
-  }
-  width: 250px;
-  height: 150px;
-  background-color: #fff;
-  padding: 30px;
-  border-bottom: 1px solid $grayMedium;
-  border-radius: 4px;
+		margin: 0;
+		padding: 0;
+	}
+	width: 250px;
+	height: 150px;
+	background-color: #fff;
+	padding: 30px;
+	border-bottom: 1px solid $grayMedium;
+	border-radius: 4px;
 
 }
 
 #box_boards {
-  text-align: center;
-  div {
-    line-height: 100px;
-    margin: 10px;
-    display: inline-block;
-    text-align: center;
-    width: 150px;
-    height: 100px;
-    background-color: #fff;
-    border-bottom: 1px solid $grayMedium;
-    border-radius: 4px;
-  }
+	text-align: center;
+	div {
+		line-height: 100px;
+		margin: 10px;
+		display: inline-block;
+		text-align: center;
+		width: 150px;
+		height: 100px;
+		background-color: #fff;
+		border-bottom: 1px solid $grayMedium;
+		border-radius: 4px;
+	}
 }
 
 nav {
-  margin: 0 auto;
-  width: 940px;
+	margin: 0 auto;
+	width: 940px;
 }

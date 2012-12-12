@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-	before_filter :require_login,  only: [:index, :edit]
-	before_filter :correct_user,    only: [:show, :edit, :update, :create]
-	before_filter :admin_user, 	    only: :destroy 
+	before_filter :signed_in_user, only: [:index]
+	before_filter :correct_user,   only: [:edit, :update]
+	before_filter :admin_user, 	   only: [:index, :destroy]
 
   	def show
 		@user = User.find(params[:id])
@@ -36,7 +36,6 @@ class UsersController < ApplicationController
 	end
 
 	def index
-		#@users = User.paginate(page: params[:page])
 		@users = User.all
 	end
 
@@ -46,14 +45,14 @@ class UsersController < ApplicationController
 		redirect_to users_url
 	end
 
-  def require_login
-    unless signed_in?
-      flash[:error] = "Not signed in" 
-      redirect_to signin_path # Prevents the current action from running
-    end
-  end
-	# PRIVATE FUNCTIONS 
 	private
+
+	def signed_in_user
+		unless signed_in?
+			store_location
+			redirect_to signin_url, flash: {error: "Not signed in"}
+		end
+	end
 
 	def correct_user
 		flash[:error] = "Wrong user" 
@@ -62,6 +61,8 @@ class UsersController < ApplicationController
 	end
 
 	def admin_user
-		redirect_to(root_path) unless current_user.admin?
+		unless current_user.admin?
+			redirect_to root_path, flash: {error: "Not an administrator"}
+		end
 	end
 end

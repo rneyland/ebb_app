@@ -7,7 +7,7 @@
 	<li><b>Width: </b><%= @board.width %> tiles</li>
 	<li><b>Height: </b><%= @board.height %> tiles</li>
 	<li><b>Timezone: </b><%= @board.timezone %></li>
-	<li><%= button_to "Create advertisement", new_board_advertisement_path(@board), class: "btn btn-large btn-primary" %></li>
+	<li><%= button_to "Create advertisement", new_board_advertisement_path(@board), method: "get", class: "btn btn-large btn-primary" %></li>
 	</ul>
 	</div>
 	

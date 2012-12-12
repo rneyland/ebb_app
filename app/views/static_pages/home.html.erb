@@ -1,11 +1,10 @@
 
-  <div class="center hero-unit">
-    <h1>Welcome to the Electronic Bulletin Board App</h1>
+ 	<div class="center hero-unit">
+    	<h1>Welcome to the Electronic Bulletin Board App</h1>
+    	<h2 class="center"> A site dedicated to making your advertisements seen.</h2>
+    
+    	<% if !signed_in? %>
+    		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+    	<% end %>
 
-    <h2 class="center">
-     A site dedicated to making your advertisements seen.
-    </h2>
-
-    <%= link_to "Sign up now!", signup_path, 
-                                class: "btn btn-large btn-primary" %>
-  </div>
+  	å</div>

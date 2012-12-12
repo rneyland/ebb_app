@@ -6,7 +6,7 @@ class CreateBoards < ActiveRecord::Migration
       t.integer :height 
       t.integer :width
       t.string :timezone
-      t.integer :age, default: 0
+      t.integer :age
       t.timestamps
     end
 	add_index :boards, :user_id

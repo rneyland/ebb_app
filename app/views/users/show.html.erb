@@ -1,17 +1,17 @@
 <% provide(:title, @user.name) %>
-	<div class="box_left">
+	<div class="box_left" style="margin:0 auto">
 		
 			<h1><%= @user.name %></h1>
 			<a target="blank" href="mailto:<%= @user.email %>"><%= @user.email %></a>
 			<h2>Boards: <%= @user.boards.count %><h2>
-<%= button_to "Create board", new_board_path, class: "btn btn-large btn-primary" %>
+			<%= button_to "Create board", new_board_path, method: "get", class: "btn btn-large btn-primary" %>
 
 	
 	</div>
 
 
 
-	<div class="row">
+<!-- 	<div class="row">
 			<h1>My boards</h1>
 			
 		
@@ -20,4 +20,4 @@
 		</div>
 
 
-	</div>
+	</div> -->
