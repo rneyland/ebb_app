@@ -22,16 +22,15 @@ class Board < ActiveRecord::Base
 	end
 
 	def create_payment
-		payment_detail = self.user.payment_details.build(amount: width * height * 1)
+		payment_detail = self.user.payment_details.build(amount: width * height)
 		payment_detail.payable = self
 		payment_detail.save
 	end
 
 	def age 
 		self.advertisements.each do |ad|
-			ad.charge
 			ad.tiles.each do |tile|
-				tile.cost = ((tile.cost) / 2) 
+				tile.cost = (tile.cost / BigDecimal.new('2.0')).truncate(2)
 				tile.save()
 			end
 		end

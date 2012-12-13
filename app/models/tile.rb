@@ -17,7 +17,7 @@ class Tile < ActiveRecord::Base
   #     self.cost = 1.0
   #     self.save
   # end
-
+  
   private
 
   	def check_tile_bounds

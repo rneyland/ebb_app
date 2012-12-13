@@ -19,20 +19,23 @@ class Advertisement < ActiveRecord::Base
   
 
     def generate_tiles
-        self.width.times do |i|
-            self.height.times do |j|
-                tile = self.tiles.build(x_location: i + self.x_location, y_location: j + self.y_location)
-                tile.advertisement = self
-                tile.cost = 1.0
-                tile.save
+            self.width.times do |i|
+                self.height.times do |j|
+                    tile = self.tiles.build(x_location: i + self.x_location, y_location: j + self.y_location)
+                    tile.advertisement = self
+                    tile.cost = 1.0
+                    tile.save
+                end
             end
-        end
+ 
     end
 
     def charge
-        payment_detail = self.user.payment_details.build(amount: 1)
-        payment_detail.payable = self
-        payment_detail.save
+        if (self.image != "fake")
+            payment_detail = self.user.payment_details.build(amount: self.tiles.sum(:cost)) #conditions: ['advertisement_id = ?', self.id]))
+            payment_detail.payable = self
+            payment_detail.save
+        end
     end
 
     def validate_bounds
